@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #ffffff;
+      color: #333;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #0066cc;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      margin-top: 20px;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .animal, .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .image {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .animal {
+      font-size: 14px;
+      font-weight: bold;
+      background-color: #e0f7fa;
+      padding: 5px;
+      border-radius: 5px;
+      text-align: center;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .selected {
+      background-color: #b2ebf2;
+      border: 2px solid #00796b;
+    }
+
+    .incorrect {
+      background-color: #ffcdd2;
+      border: 2px solid #d32f2f;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      .animal, .image-container {
+        margin: 10px 0;
+      }
+
+      .animal {
+        width: 80px;
+        height: 80px;
+      }
+
+      .image {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    .progress-container, .error-container {
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+
+    .progress-bar, .error-bar {
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .progress-bar {
+      background-color: #76c7c0;
+    }
+
+    .error-bar {
+      background-color: #f44336;
+    }
+  </style>
+  <title>Match the Animals</title>
+</head>
+<body>
+  <div style="display: flex; align-items: center;">
+        <img src="https://github.com/Mark2024Eze/Proyecto-para-ingles/blob/main/instituto%20overcome.jpg?raw=true" alt="Instituto Overcome" style="max-width: 100px; margin-right: 20px;">
+        <h1>Match the Animals with the Images</h1>
+    </div>
+  <div class="progress-container">
+    <div id="progressBar" class="progress-bar">0%</div>
+  </div>
+  <div class="progress-container">
+    <div id="correctBar" class="progress-bar">Correct: 0</div>
+  </div>
+  <div class="error-container">
+    <div id="errorBar" class="error-bar">Errors: 0</div>
+  </div>
+  
+  <div class="container">
+    <div class="column" id="animals">
+      <div class="animal" data-animal="cat">Cat</div>
+      <div class="animal" data-animal="dog">Dog</div>
+      <div class="animal" data-animal="bird">Bird</div>
+      <div class="animal" data-animal="fish">Fish</div>
+      <div class="animal" data-animal="horse">Horse</div>
+      <div class="animal" data-animal="rabbit">Rabbit</div>
+      <div class="animal" data-animal="elephant">Elephant</div>
+      <div class="animal" data-animal="lion">Lion</div>
+      <div class="animal" data-animal="tiger">Tiger</div>
+      <div class="animal" data-animal="giraffe">Giraffe</div>
+    </div>
+    <canvas id="canvas"></canvas>
+    <div class="column" id="images">
+      <div class="image-container" data-animal="cat">
+        <img src="https://example.com/cat-image.jpg" alt="Cat" class="image">
+      </div>
+      <div class="image-container" data-animal="dog">
+        <img src="https://example.com/dog-image.jpg" alt="Dog" class="image">
+      </div>
+      <div class="image-container" data-animal="bird">
+        <img src="https://example.com/bird-image.jpg" alt="Bird" class="image">
+      </div>
+      <div class="image-container" data-animal="fish">
+        <img src="https://example.com/fish-image.jpg" alt="Fish" class="image">
+      </div>
+      <div class="image-container" data-animal="horse">
+        <img src="https://example.com/horse-image.jpg" alt="Horse" class="image">
+      </div>
+      <div class="image-container" data-animal="rabbit">
+        <img src="https://example.com/rabbit-image.jpg" alt="Rabbit" class="image">
+      </div>
+      <div class="image-container" data-animal="elephant">
+        <img src="https://example.com/elephant-image.jpg" alt="Elephant" class="image">
+      </div>
+      <div class="image-container" data-animal="lion">
+        <img src="https://example.com/lion-image.jpg" alt="Lion" class="image">
+      </div>
+      <div class="image-container" data-animal="tiger">
+        <img src="https://example.com/tiger-image.jpg" alt="Tiger" class="image">
+      </div>
+      <div class="image-container" data-animal="giraffe">
+        <img src="https://example.com/giraffe-image.jpg" alt="Giraffe" class="image">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const animals = document.querySelectorAll('.animal');
+    const imageContainers = document.querySelectorAll('.image-container');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let selectedAnimal = null;
+    let correctAnswers = 0;
+    let errors = 0;
+
+    const correctMatches = {
+      cat: 'cat-image.jpg',
+      dog: 'dog-image.jpg',
+      bird: 'bird-image.jpg',
+      fish: 'fish-image.jpg',
+      horse: 'horse-image.jpg',
+      rabbit: 'rabbit-image.jpg',
+      elephant: 'elephant-image.jpg',
+      lion: 'lion-image.jpg',
+      tiger: 'tiger-image.jpg',
+      giraffe: 'giraffe-image.jpg'
+    };
+
+    const matchedImages = new Set();
+
+    canvas.width = document.querySelector('.container').offsetWidth;
+    canvas.height = document.querySelector('.container').offsetHeight;
+
+    function drawArrow(fromX, fromY, toX, toY) {
+      const headlen = 10; // length of head in pixels
+      const dx = toX - fromX;
+      const dy = toY - fromY;
+      const angle = Math.atan2(dy, dx);
+      ctx.moveTo(fromX, fromY);
+      ctx.lineTo(toX, toY);
+      ctx.lineTo(toX - headlen * Math.cos(angle - Math.PI / 6), toY - headlen * Math.sin(angle - Math.PI / 6));
+      ctx.moveTo(toX, toY);
+      ctx.lineTo(toX - headlen * Math.cos(angle + Math.PI / 6), toY - headlen * Math.sin(angle + Math.PI / 6));
+    }
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function updateProgressBar() {
+      const progressBar = document.getElementById('progressBar');
+      const totalAnimals = animals.length;
+      const progressPercentage = (correctAnswers / totalAnimals) * 100;
+      progressBar.style.width = progressPercentage + '%';
+      progressBar.textContent = Math.round(progressPercentage) + '%';
+    }
+
+    function updateCorrectCounter() {
+      const correctBar = document.getElementById('correctBar');
+      correctBar.textContent = 'Correct: ' + correctAnswers;
+    }
+
+    function updateErrorCounter() {
+      const errorBar = document.getElementById('errorBar');
+      errorBar.textContent = 'Errors: ' + errors;
+    }
+
+    animals.forEach(animal => {
+      animal.addEventListener('click', () => {
+        if (selectedAnimal) {
+          selectedAnimal.classList.remove('selected');
+        }
+        animal.classList.add('selected');
+        selectedAnimal = animal;
+      });
+    });
+
+    imageContainers.forEach(container => {
+      container.addEventListener('click', () => {
+        if (selectedAnimal) {
+          const animalText = selectedAnimal.getAttribute('data-animal');
+          const imageAnimal = container.getAttribute('data-animal');
+          
+          if (animalText === imageAnimal) {
+            if (!matchedImages.has(animalText)) {
+              matchedImages.add(animalText);
+              clearCanvas();
+              const rect = container.getBoundingClientRect();
+              const animalRect = selectedAnimal.getBoundingClientRect();
+              drawArrow(animalRect.left + animalRect.width / 2, animalRect.top + animalRect.height / 2,
+                        rect.left + rect.width / 2, rect.top + rect.height / 2);
+              ctx.stroke();
+              selectedAnimal.classList.remove('selected');
+              selectedAnimal.classList.add('correct');
+              container.classList.add('correct');
+              correctAnswers++;
+              updateCorrectCounter();
+              updateProgressBar();
+            }
+          } else {
+            selectedAnimal.classList.remove('selected');
+            selectedAnimal.classList.add('incorrect');
+            container.classList.add('incorrect');
+            errors++;
+            updateErrorCounter();
+          }
+          selectedAnimal = null;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

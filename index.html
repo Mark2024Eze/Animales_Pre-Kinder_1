@@ -30,6 +30,29 @@
       z-index: -1; /* Coloca detrás de otros elementos */
     }
 
+   /* Ajustes para pantallas más pequeñas, como móviles */
+   @media (max-width: 768px) {
+  .background-logo {
+    background-size: 300px auto; /* Redimensiona el logo para móviles */
+    background-position: center 150px; /* Baja la imagen 150px en móviles */
+  }
+    }
+
+    /* Ajustes para pantallas medianas, como tablets */
+    @media (min-width: 769px) and (max-width: 1200px) {
+     .background-logo {
+     background-size: 500px auto; /* Tamaño intermedio del logo */
+     background-position: center 200px; /* Ajusta la posición del logo */
+    }
+   }
+
+    /* Ajustes para pantallas grandes, como PC */
+    @media (min-width: 1201px) {
+    .background-logo {
+     background-size: 25%; /* Tamaño más grande del logo en PC */
+     background-position: center 300px; /* Ajusta la posición del logo */
+    }
+   }
     h1, h2 {
       text-align: center;
       color: #0066cc;
@@ -204,86 +227,86 @@
     <div class="column" id="animals">
       <div class="animal" data-animal="bird">
         Bird
-        <button class="animal-button" data-audio="bird.mp3">🔊</button>
+        <button class="animal-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005700/luvvoice.com-20241004-suwaQV_dsdcjz.mp3">🔊</button>
       </div>
       <div class="animal" data-animal="cat">
         Cat
-        <button class="animal-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1725825027/Audio_de_WhatsApp_2024-09-08_a_las_16.49.37_b17c68d1_qogiqa.mp3">🔊</button>
+        <button class="animal-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005700/luvvoice.com-20241004-64Ym2A_bt3fh3.mp3">🔊</button>
       </div>
       <div class="animal" data-animal="dog">
         Dog
-        <button class="animal-button" data-audio="dog.mp3">🔊</button>
+        <button class="animal-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005699/luvvoice.com-20241004-jJ9DyF_x5jjec.mp3">🔊</button>
       </div>
       <div class="animal" data-animal="elephant">
         Elephant
-        <button class="animal-button" data-audio="elephant.mp3">🔊</button>
+        <button class="animal-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005699/luvvoice.com-20241004-CNofCv_kzrnmw.mp3">🔊</button>
       </div>
       <div class="animal" data-animal="giraffe">
         Giraffe
-        <button class="animal-button" data-audio="giraffe.mp3">🔊</button>
+        <button class="animal-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005698/luvvoice.com-20241004-mNosMH_njmoop.mp3">🔊</button>
       </div>
       <div class="animal" data-animal="lion">
         Lion
-        <button class="animal-button" data-audio="lion.mp3">🔊</button>
+        <button class="animal-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005698/luvvoice.com-20241004-zu3Aso_lbancw.mp3">🔊</button>
       </div>
       <div class="animal" data-animal="rabbit">
         Rabbit
-        <button class="animal-button" data-audio="rabbit.mp3">🔊</button>
+        <button class="animal-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005698/luvvoice.com-20241004-W6kqI8_ypwowh.mp3">🔊</button>
       </div>
       <div class="animal" data-animal="tiger">
         Tiger
-        <button class="animal-button" data-audio="tiger.mp3">🔊</button>
+        <button class="animal-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005698/luvvoice.com-20241004-ZCrzcs_h4ft6y.mp3">🔊</button>
       </div>
       <div class="animal" data-animal="fish">
         Fish
-        <button class="animal-button" data-audio="fish.mp3">🔊</button>
+        <button class="animal-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005698/luvvoice.com-20241004-r2KvFP_zfge0x.mp3">🔊</button>
       </div>
       <div class="animal" data-animal="horse">
         Horse
-        <button class="animal-button" data-audio="horse.mp3">🔊</button>
+        <button class="animal-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005697/luvvoice.com-20241004-VtaR3m_zr3o11.mp3">🔊</button>
       </div>
     </div>
     <canvas id="canvas"></canvas>
     <div class="column" id="images">
       <div class="image-container" data-animal="bird">
         <img src="https://raw.githubusercontent.com/Mark2024Eze/Animales_Pre-Kinder_1/main/cartoony-bird-illustration.png" alt="Bird" class="image">
-        <button class="image-button" data-audio="bird.mp3">🔊</button>
+        <button class="image-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005700/luvvoice.com-20241004-suwaQV_dsdcjz.mp3">🔊</button>
       </div>
       <div class="image-container" data-animal="cat">
         <img src="https://raw.githubusercontent.com/Mark2024Eze/Animales_Pre-Kinder_1/main/close-up-adorable-kitten-couch.png" alt="Cat" class="image">
-        <button class="image-button" data-audio="cat.mp3">🔊</button>
+        <button class="image-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005700/luvvoice.com-20241004-64Ym2A_bt3fh3.mp3">🔊</button>
       </div>
       <div class="image-container" data-animal="dog">
         <img src="https://raw.githubusercontent.com/Mark2024Eze/Animales_Pre-Kinder_1/main/close-up-portrait-yorkshire-dog.png" alt="Dog" class="image">
-        <button class="image-button" data-audio="dog.mp3">🔊</button>
+        <button class="image-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005699/luvvoice.com-20241004-jJ9DyF_x5jjec.mp3">🔊</button>
       </div>
       <div class="image-container" data-animal="elephant">
         <img src="https://raw.githubusercontent.com/Mark2024Eze/Animales_Pre-Kinder_1/main/elephant-artificial-intelligence-image.png" alt="Elephant" class="image">
-        <button class="image-button" data-audio="elephant.mp3">🔊</button>
+        <button class="image-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005699/luvvoice.com-20241004-CNofCv_kzrnmw.mp3">🔊</button>
       </div>
       <div class="image-container" data-animal="giraffe">
         <img src="https://raw.githubusercontent.com/Mark2024Eze/Animales_Pre-Kinder_1/main/giraffe-wild.png" alt="Giraffe" class="image">
-        <button class="image-button" data-audio="giraffe.mp3">🔊</button>
+        <button class="image-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005698/luvvoice.com-20241004-mNosMH_njmoop.mp3">🔊</button>
       </div>
       <div class="image-container" data-animal="lion">
         <img src="https://raw.githubusercontent.com/Mark2024Eze/Animales_Pre-Kinder_1/main/lion-dry-forest-landscape.png" alt="Lion" class="image">
-        <button class="image-button" data-audio="lion.mp3">🔊</button>
+        <button class="image-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005698/luvvoice.com-20241004-zu3Aso_lbancw.mp3">🔊</button>
       </div>
       <div class="image-container" data-animal="rabbit">
         <img src="https://raw.githubusercontent.com/Mark2024Eze/Animales_Pre-Kinder_1/main/pngwing.com%20(1).png" alt="Rabbit" class="image">
-        <button class="image-button" data-audio="rabbit.mp3">🔊</button>
+        <button class="image-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005698/luvvoice.com-20241004-W6kqI8_ypwowh.mp3">🔊</button>
       </div>
       <div class="image-container" data-animal="tiger">
         <img src="https://raw.githubusercontent.com/Mark2024Eze/Animales_Pre-Kinder_1/main/pngwing.com%20(2).png" alt="Tiger" class="image">
-        <button class="image-button" data-audio="tiger.mp3">🔊</button>
+        <button class="image-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005698/luvvoice.com-20241004-ZCrzcs_h4ft6y.mp3">🔊</button>
       </div>
       <div class="image-container" data-animal="fish">
         <img src="https://raw.githubusercontent.com/Mark2024Eze/Animales_Pre-Kinder_1/main/pngwing.com%20(3).png" alt="Fish" class="image">
-        <button class="image-button" data-audio="fish.mp3">🔊</button>
+        <button class="image-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005698/luvvoice.com-20241004-r2KvFP_zfge0x.mp3">🔊</button>
       </div>
       <div class="image-container" data-animal="horse">
         <img src="https://raw.githubusercontent.com/Mark2024Eze/Animales_Pre-Kinder_1/main/pngwing.com%20(4).png" alt="Horse" class="image">
-        <button class="image-button" data-audio="horse.mp3">🔊</button>
+        <button class="image-button" data-audio="https://res.cloudinary.com/deyhxjgsn/video/upload/v1728005697/luvvoice.com-20241004-VtaR3m_zr3o11.mp3">🔊</button>
       </div>
     </div>
   </div>
@@ -291,10 +314,11 @@
   <button class="check-button" onclick="checkAnswers()">Check Answers</button>
   <button class="reset-button" onclick="resetGame()">Reset</button>
 
-   <!-- Pie de página -->
+  <!-- Pie de página -->
   <footer>
     <p>&copy; Activity Match de animals with the images - Profesora Mariana Cuello © 2024</p>
   </footer>
+
   
   <script>
     let lines = [];
@@ -424,6 +448,18 @@
         playAudio(audioSrc);
       });
     });
+
+    <!-- JavaScript para reproducir audio sin seleccionar imágenes o palabras -->
+     
+  document.querySelectorAll('.animal-button').forEach(button => {
+    button.addEventListener('click', function(event) {
+      event.stopPropagation(); // Evita que el clic en el botón de audio seleccione la imagen o palabra
+      const audioSrc = this.getAttribute('data-audio');
+      const audio = new Audio(audioSrc);
+      audio.play();
+    });
+  });
+
   </script>
 </body>
 </html>
